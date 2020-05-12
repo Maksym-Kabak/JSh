@@ -133,6 +133,12 @@ db.getCollection('students').aggregate([
     }
 ])
 
+//db.getCollection("students").update(
+//  {$and: [{ "parents.profession": null}, {"parents":{$ne:null}}]},
+//    {$set: {"parents.$.profession": "waiter"}},
+//   {multi: 1}
+//)
+
 
 // 15) Вигнати дітей, які мають середній бал менше ніж 2.5
 //
