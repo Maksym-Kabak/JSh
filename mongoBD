@@ -122,18 +122,16 @@
 //
 
 // 14) Не працюючих батьків влаштувати офіціантами
-// db.getCollection('students').update(
-//     ,
-//      {
-//         $set : {
-//             "parents.$[].profession" : "waiter"
-//             }
-//      },
-//      {
-//       multi:true
-//      }
-//
-// )
+db.getCollection('students').aggregate([
+    {$unwind: "$parents"},
+    {$match: {
+            "parents.profession": {$exists: 0}
+        }
+    },
+    {
+        $set: {"parents.profession": "waiter"}
+    }
+])
 
 
 // 15) Вигнати дітей, які мають середній бал менше ніж 2.5
