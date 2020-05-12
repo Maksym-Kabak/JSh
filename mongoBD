@@ -144,8 +144,14 @@ db.getCollection('students').aggregate([
 //
 // db.getCollection('students').update(
 //     {"avgScore" : {$lt: 2.5}},
-//     {$set: {"class" : "kicked"}},
+//     {$set: {"class" : "kicked out"}},
 //     {multi:true})
+
+
+db.getCollection('students').remove({
+    "avgScore" : {$lt: 2.5}
+    })
+
 
 // 16) Дітям, батьки яких працюють в освіті ( teacher ) поставити 5
 
